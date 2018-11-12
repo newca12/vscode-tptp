@@ -1,0 +1,61 @@
+{
+    "name": "vscode-tptp",
+    "displayName": "TPTP Language",
+    "description": "TPTP Language Support for Visual Studio Code",
+    "version": "0.0.1",
+    "publisher": "newca12",
+    "icon": "images/tptp.jpg",
+    "license": "GPL-3.0",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/newca12/vscode-tptp"
+    },
+    "bugs": {
+        "url": "https://github.com/newca12/vscode-tptp/issues"
+    },
+    "engines": {
+        "vscode": "^1.28.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "activationEvents": [
+        "onLanguage:tptp"
+    ],
+    "main": "out/extension",
+    "contributes": {
+        "languages": [
+            {
+                "id": "tptp",
+                "aliases": [
+                    "tptp"
+                ],
+                "extensions": [
+                    ".tptp"
+                ],
+                "configuration": "./tptp.configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "tptp",
+                "scopeName": "text.tptp",
+                "path": "./syntaxes/tptp.tmLanguage"
+            }
+        ]
+    },
+    "devDependencies": {
+        "vscode": "^1.1.21",
+        "typescript": "^2.9.2",
+        "@types/node": "^10.11.5"
+    },
+    "dependencies": {
+        "vscode-languageclient": "^5.1.0"
+    },
+    "scripts": {
+        "prepublish": "node ./node_modules/vscode/bin/install && tsc -p ./src",
+        "compile": "tsc -p ./src",
+        "watch": "tsc -w -p ./src",
+        "update-vscode": "node ./node_modules/vscode/bin/install"
+    }
+}

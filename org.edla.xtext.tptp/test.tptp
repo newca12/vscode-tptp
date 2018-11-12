@@ -1,0 +1,11 @@
+%------------------------------------------------------------------------------
+cnf(cls_conjecture_0,negated_conjecture,
+    ( c_in(v_u,c_Mutil_Otiling(v_A,t_a),tc_set(t_a)) )).
+
+cnf(cls_conjecture_2,negated_conjecture,
+    ( ~ c_in(c_union(c_emptyset,v_u,t_a),c_Mutil_Otiling(v_A,t_a),tc_set(t_a)) )).
+
+cnf(cls_Set_OUn__empty__left_0,axiom,
+    ( c_union(c_emptyset,V_y,T_a) = V_y )).
+
+%------------------------------------------------------------------------------

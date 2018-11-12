@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="tptp" nsURI="http://www.edla.org/xtext/tptp/Tptp" nsPrefix="tptp">
+  <eClassifiers xsi:type="ecore:EClass" name="Model">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="TPTP_input" upperBound="-1"
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="include" eSuperTypes="#//fof_input #//tff_input #//cnf_input #//thf_input">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="fof_input"/>
+  <eClassifiers xsi:type="ecore:EClass" name="fof_root" eSuperTypes="#//fof_input">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="formula_role" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exp" eType="#//fof_expression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="fof_expression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fof_atom" eType="#//fof_atom"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fof_negation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fof_exp" eType="#//fof_expression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fof_quantifier" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fof_param" eType="#//fof_variable_list"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="fof_atom">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="fof_constant" eSuperTypes="#//fof_atom">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fof_param" upperBound="-1"
+        eType="#//fof_atom" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="fof_var" eSuperTypes="#//fof_atom"/>
+  <eClassifiers xsi:type="ecore:EClass" name="fof_variable_list">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="params" upperBound="-1"
+        eType="#//fof_var" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="tff_input"/>
+  <eClassifiers xsi:type="ecore:EClass" name="tff_root" eSuperTypes="#//tff_input">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="formula_role" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exp" eType="#//tff_expression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="def" eType="#//tff_formula_type_definition"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="tff_formula_type_definition">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exp" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="tff_type_expression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="tff_type_atom" eSuperTypes="#//tff_type_expression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="tff_type_constant" eSuperTypes="#//tff_type_atom">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="param" upperBound="-1"
+        eType="#//tff_type_atom" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="tff_expression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="atom" eType="#//tff_atom"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="negation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exp" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="quantifier" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="param" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="tff_atom"/>
+  <eClassifiers xsi:type="ecore:EClass" name="tff_constant" eSuperTypes="#//tff_atom">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="param" upperBound="-1"
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="top" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bottom" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="tff_predefined_function_2_args" eSuperTypes="#//tff_atom">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="func" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="param" upperBound="-1"
+        eType="#//tff_expression" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="tff_var" eSuperTypes="#//tff_type_atom #//tff_atom"/>
+  <eClassifiers xsi:type="ecore:EClass" name="tff_var_declaration">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="var" eType="#//tff_var"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="vartype" eType="#//tff_type_expression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="tff_variable_list">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="params" upperBound="-1"
+        eType="#//tff_var_declaration" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="cnf_input"/>
+  <eClassifiers xsi:type="ecore:EClass" name="cnf_root" eSuperTypes="#//cnf_input">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="formula_role" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exp" eType="#//cnf_formula_type_definition"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="cnf_formula_type_definition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="disjunction" eType="#//cnf_or"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="cnf_or">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="or" upperBound="-1" eType="#//cnf_not"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="cnf_not">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="negated" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="literal" eType="#//cnf_equality"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="cnf_equality">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expL" eType="#//cnf_expression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="eq" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expR" eType="#//cnf_expression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="cnf_expression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cnf_exp" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="cnf_constant" eSuperTypes="#//cnf_expression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="param" upperBound="-1"
+        eType="#//cnf_expression" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="cnf_var" eSuperTypes="#//cnf_expression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="thf_input"/>
+  <eClassifiers xsi:type="ecore:EClass" name="thf_root" eSuperTypes="#//thf_input">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="formula_role" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="def" eType="#//thf_formula_type_definition"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="thf_exp" eType="#//thf_expression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="thf_formula_type_definition">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exp" eType="#//thf_type_expression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="thf_type_expression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="thf_type_atom" eSuperTypes="#//thf_type_expression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="thf_type_constant" eSuperTypes="#//thf_type_atom">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="thf_expression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="thf_atom" eType="#//thf_atom"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="thf_negation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="thf_exp" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="op" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="thf_atom">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="thf_constant" eSuperTypes="#//thf_atom">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="thf_param" upperBound="-1"
+        eType="#//thf_atom" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="thf_var" eSuperTypes="#//thf_atom"/>
+  <eClassifiers xsi:type="ecore:EClass" name="thf_variable_list">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="params" upperBound="-1"
+        eType="#//thf_var_declaration" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="thf_var_declaration">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="var" eType="#//thf_var"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="vartype" eType="#//thf_type_expression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="binary" eSuperTypes="#//fof_expression #//tff_expression #//thf_expression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="oper" eSuperTypes="#//tff_type_expression #//thf_type_expression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="op" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" upperBound="-1"
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject" containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>
